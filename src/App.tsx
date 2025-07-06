@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import Filters from "./components/Filter";
 import LaunchTable from "./components/LaunchTable";
 import LaunchDetailsModal from "./components/LaunchDetailsModal";
 import { Launch } from "./types/Launch";
@@ -72,62 +71,37 @@ export default function App() {
   };
 
   const filteredLaunches = launches.filter((l) => {
-    // if (statusFilter === "All") return true;
     if (statusFilter === "Success") return l.success === true;
     if (statusFilter === "Failed") return l.success != true && l.upcoming != true;
     if (statusFilter === "Upcoming") return l.upcoming === true;
     return true;
   });
-//   console.log("All launches:", launches);
-// console.log("Success launches:", launches.filter(l => l.success === true));
-// console.log("Failed launches:", launches.filter(l => l.success === false));
-// console.log("Upcoming launches:", launches.filter(l => l.upcoming === true));
-// console.log("Filtered:", filteredLaunches);
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
       <Header />
       <div className="content-wrapper">
-        {/* <Filters /> */}
-
-        {/* Status Filter Dropdown */}
-        <div className="filters-row">
-  <div className="filter-group">
-    <DateRangeFilter onDateRangeChange={({ start, end }) => {
+      <div className="filters-row">
+      <div className="filter-group">
+      <DateRangeFilter onDateRangeChange={({ start, end }) => {
       console.log("Selected range:", start.toISOString(), end.toISOString());
-    }} />
-  </div>
-  <div className="filter-group">
-    <select
+       }} />
+      </div>
+      <div className="filter-group">
+      <select
       id="launchStatus"
       value={statusFilter}
       onChange={(e) => setStatusFilter(e.target.value)}
-    >
+      >
       <option value="All">All Launches</option>
       <option value="Upcoming">Upcoming Launches</option>
       <option value="Success">Successful Launches</option>
       <option value="Failed">Failed Launches</option>
-    </select>
-  </div>
-   {/* Table */}
-   <LaunchTable launches={filteredLaunches} onRowClick={handleRowClick} />
+      </select>
+      </div>
+       <LaunchTable launches={filteredLaunches} onRowClick={handleRowClick} />
     
-</div>
-
-
-        {/* Date Range Filter
-        <DateRangeFilter
-          onDateRangeChange={(range) => {
-            if (range.start && range.end) {
-              setDateRange({ start: range.start, end: range.end });
-            }
-          }}
-        /> */}
-
-        {/* Table
-        <LaunchTable launches={filteredLaunches} onRowClick={handleRowClick} /> */}
-
-        {/* Modal */}
+    </div>
         {selectedLaunch && (
           <LaunchDetailsModal
             launch={selectedLaunch}
