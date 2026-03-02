@@ -1,69 +1,213 @@
-# React + TypeScript + Vite
+# 🚀 SpaceX Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern SpaceX Launch Dashboard built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+This project visualizes SpaceX launch data in a structured, filterable, and paginated interface, focusing on performance, clean architecture, and responsive UI design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+👉 https://interview-for-prathamesh-ugale.vercel.app/
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Deployed on **Vercel** with optimized production builds and global CDN delivery.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Overview
+
+The SpaceX Dashboard provides a clean and interactive way to explore launch history with:
+
+- 📅 Date-based filtering
+- 📊 Launch status indicators
+- 🛰 Orbit classification
+- 🚀 Rocket information
+- 📍 Launch site details
+- 📄 Paginated data table
+- ⚡ Fast performance using Vite
+
+Designed with scalable architecture and reusable component patterns.
+
+---
+
+## 🔥 Core Features
+
+### 📆 Date Range Filtering
+Filter launches by:
+- Past 6 Months
+- Custom date selection (via date picker)
+
+Powered by:
+- `react-datepicker`
+- `date-fns`
+
+---
+
+### 🚀 Launch Status Indicators
+Visual status badges:
+- 🟡 Upcoming
+- 🟢 Success
+- 🔴 Failed (extendable)
+
+Clear visual feedback for mission state.
+
+---
+
+### 📊 Launch Data Table
+Structured table with:
+
+- Launch Number
+- Launch Date (UTC)
+- Location
+- Mission Name
+- Orbit Type (LEO, SSO, MEO, VLEO, etc.)
+- Launch Status
+- Rocket Type
+
+---
+
+### 📄 Pagination
+Efficient page navigation:
+- Previous / Next controls
+- Numbered pagination
+- Optimized rendering
+
+---
+
+### 🎨 Modern UI
+- Tailwind CSS 4 styling
+- Clean spacing & layout
+- Professional dashboard feel
+- Fully responsive
+
+---
+
+## ⚙️ Tech Stack
+
+### Core
+- **React 19**
+- **TypeScript 5**
+- **Vite 7**
+
+### Styling
+- **Tailwind CSS 4**
+- **PostCSS**
+- **Autoprefixer**
+
+### Utilities
+- **date-fns**
+- **react-datepicker**
+
+### Tooling
+- ESLint
+- TypeScript strict configuration
+
+---
+
+## 📁 Project Structure
+
+```
+spacex-dashboard/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── utils/
+│   ├── types/
+│   └── App.tsx
+│
+├── index.html
+├── tailwind.config.js
+├── tsconfig.json
+├── vite.config.ts
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Engineering Highlights
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Modular component architecture
+- Clean separation of concerns
+- Strong typing with TypeScript
+- Efficient pagination logic
+- Date filtering with optimized computation
+- Reusable status badge component
+- Scalable data structure
+
+---
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/spacex-dashboard.git
+cd spacex-dashboard
 ```
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run Development Server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 4️⃣ Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+### 5️⃣ Preview Production Build
+
+```bash
+npm run preview
+```
+
+---
+
+## 📜 Available Scripts
+
+| Script | Description |
+|--------|------------|
+| npm run dev | Start development server |
+| npm run build | Type-check + production build |
+| npm run preview | Preview production build |
+| npm run lint | Run ESLint |
+
+---
+
+## 📈 Performance Strategy
+
+- Vite-powered lightning-fast builds
+- Efficient rendering of paginated lists
+- Minimal re-renders
+- Lightweight dependency usage
+- Optimized date filtering logic
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+Built with precision and performance-focused frontend architecture.
